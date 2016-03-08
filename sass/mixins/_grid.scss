@@ -1,0 +1,43 @@
+@import 'variables.scss';
+@import 'clearfix.scss';
+// Grid system
+// Generate semantic grid columns with these mixins.
+
+//  Funtion to calculate the width of the containor 
+@function grid-width($cols, $has-gutter:false) {
+ @if $has-gutter {
+   @return calc(((100% / #{$number-of-columns}) * #{$cols}) - #{$gutter}); 
+ }
+ @else {
+   @return calc((100% / #{$number-of-columns}) * #{$cols});
+ }
+}
+
+// Set columns
+@for $i from 1 through $number-of-columns {
+  .column-#{$i} {
+    width: grid-width(#{$i}, true);
+    height:100%;
+    background:#ccc;
+    display: inline-block;
+    margin-left: $gutter/2;
+    margin-right: $gutter/2;
+    float: left;
+  }    
+}
+
+// Set Base Container
+.container {
+    max-width: $total-width;
+    margin: 0px auto;
+    height: 100px;
+    background: blue;
+}
+
+// Set Base Row
+.row {
+  width: 100%;
+  height: 50px;
+  background: green;
+  @include clearfix;
+ }

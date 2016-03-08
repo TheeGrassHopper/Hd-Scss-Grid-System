@@ -1,0 +1,7 @@
+$screen-width: 1147px;
+$number-of-columns: 12;
+$gutter: 30px;
+$padding: $gutter / 2;
+
+$column-width: $screen-width/$number-of-columns;
+$total-width: ($column-width * $number-of-columns) + ($gutter * ($number-of-columns - 1));
